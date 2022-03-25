@@ -1,9 +1,10 @@
 <template>
   <div class="home">
     <img id="logo" alt="Vue logo" src="../assets/Kira_Pasteles.png">
-    <Info/>
+    <p class="tcenter">Pasteleria Kira se pone a usus ordenes para preparar su pastel preferido</p>
     <Sabores/>
     <Figuras/>
+    <Info/>
   </div>
 </template>
 
