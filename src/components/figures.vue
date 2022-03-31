@@ -5,7 +5,7 @@
      <table>
         <tr>
             <th> Estrellas </th>
-            <th> Figuras geometricas </th>
+            <th> Figuras Geometricas </th>
             <th> Numeros </th>
             <th> Letras </th>
         </tr>
