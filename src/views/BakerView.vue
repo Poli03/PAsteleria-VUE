@@ -2,27 +2,35 @@
   <div class="pastelero">
     <h1>Pastelero</h1>
       <h1>Pedidos requeridos:</h1>
-     <output>5</output>
+     <p>{{$store.getters.pedido}}</p>
      <p>Numero de pedido:</p>
-     <input type="number" id="orders1" name="orders1" min="0" max="20" value="2"><br>
+     <input type="number" min="0" max="99" value="4"><br>
      <table>
         <tr>
             <th>Nombre</th>
             <th>Telefono</th>
             <th>Correo </th>
-            <th> Sabores</th>
         </tr>
- 
-        <tr>
-             <td>Martin Lara Rosas</td>
-             <td><output>Martin Lara Rosas</output></td>
-             <td><output>Martin12@correo.com</output></td>
-             <td><output>Limon,vainilla</output></td>
+        <tr v-for="(form, index) in $store.state.arrayForm" :key="index">
+             <td>{{form.nombre}}</td>
+             <td>{{form.telefono}}</td>
+             <td>{{form.correo}}</td>
         </tr>
     </table><br>
-    <p>Especificaciones: </p><output>El pastel sera adornado asi....</output>
+     <table>
+        <tr>
+            <th>Sabores</th>
+        </tr>
+        <tr>
+             <td>limon ={{$store.state.flavors.limon}}</td>
+             <td>chocolate ={{$store.state.flavors.chocolate}}</td>
+             <td>fresa ={{$store.state.flavors.fresa}}</td>
+             <td>vainilla ={{$store.state.flavors.vainilla}}</td>
+        </tr>
+    </table><br>
+    <p><b>Especificaciones: </b></p><output>El pastel sera adornado asi....</output>
     <br><br>
-    <p>Canitad de Adornos</p> 
+    <p><b>Canitad de Adornos</b> </p> 
     <table>
         <tr>
             <th> Estrellas </th>
