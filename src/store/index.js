@@ -16,17 +16,17 @@ export default createStore({
       chocolate:false
     },
     figures:{
-      stars:0,
-      geometric:0,
-      number:0,
-      letters:0
+      estrella:0,
+      geometrica:0,
+      numero:0,
+      letra:0
     },
     arrayForm:[ 
       {nombre:'Jorge',
      telefono:'2345678901',
      correo:'example@correo.com'}],
     arrayFlavor:[
-     {proporcion:null,
+     {proporcion:'no hay',
       limon:false,
       vainilla:false,
       fresa:false,
@@ -54,7 +54,6 @@ export default createStore({
         telefono:null,
         correo:null
       };
-     alert('formulario enviado con exito');
     },
     limonChange(state,limon){
       state.flavors.limon=limon;
@@ -68,7 +67,20 @@ export default createStore({
     vainillaChange(state,vainilla){
       state.flavors.vainilla=vainilla;
     },
-    
+    addproPorcion(state,proporcion){
+      state.flavors.proporcion=proporcion;
+    },
+    addForm2(state){
+      state.arrayFlavor=[state.flavors,...state.arrayFlavor];
+      state.flavors={
+        proporcion:null,
+        limon:false,
+        vainilla:false,
+        fresa:false,
+        chocolate:false
+      };
+     alert('formulario enviado con exito');
+    },
   },
   actions: {
     nombreChange(context,nombre){
@@ -82,7 +94,13 @@ export default createStore({
      }, 
     formChange({commit}){
       commit('addForm');
-     }
+     },
+     proporcionChange({commit},proporcion){
+      commit('addproPorcion',proporcion);
+     },
+    formChange2({commit}){
+      commit('addForm2');
+     },
   },
   modules: {
   }

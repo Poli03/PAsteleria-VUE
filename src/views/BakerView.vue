@@ -17,18 +17,17 @@
              <td>{{form.correo}}</td>
         </tr>
     </table><br>
+            <p><b>Sabores</b></p>
      <table>
-        <tr>
-            <th>Sabores</th>
-        </tr>
-        <tr>
-             <td>limon ={{$store.state.flavors.limon}}</td>
-             <td>chocolate ={{$store.state.flavors.chocolate}}</td>
-             <td>fresa ={{$store.state.flavors.fresa}}</td>
-             <td>vainilla ={{$store.state.flavors.vainilla}}</td>
+        <tr v-for="(flavors, index) in $store.state.arrayFlavor" :key="index">
+             <td v-if="flavors.limon">Limon</td>
+             <td v-if="flavors.chocolate">Chocolate</td>
+             <td v-if="flavors.fresa">Fresa</td>
+             <td v-if="flavors.vainilla">Vainilla</td>
         </tr>
     </table><br>
-    <p><b>Especificaciones: </b></p><output>El pastel sera adornado asi....</output>
+    <p><b>Especificaciones: </b></p><output  v-for="(flavors, index) in $store.state.arrayFlavor" :key="index">
+        {{flavors.proporcion}}</output>
     <br><br>
     <p><b>Canitad de Adornos</b> </p> 
     <table>
@@ -46,23 +45,9 @@
              <td><output>0</output></td>
         </tr>
     </table><br>
-    <p>Adornos en almacen</p>
-    <table>
-       <tr>
-           <th> Estrellas </th>
-           <th> Figuras geometricas </th>
-           <th> Numeros </th>
-           <th> Letras </th>
-       </tr>
-
-       <tr>
-            <td><input type="number" id="num1" name="num1" min="0" max="1000" value="50"></td>
-            <td><input type="number" id="num1" name="num1" min="0" max="1000" value="25"></td>
-            <td><input type="number" id="num1" name="num1" min="0" max="1000" value="3"></td>
-            <td><input type="number" id="num1" name="num1" min="0" max="1000" value="128"></td>
-       </tr>
-   </table>
-   <p><input type="submit" id="button" value="Clic para actualizar"></p>
+    <p>Elimina pedido seleccionado: </p>
+    <button  >Eliminar pedido</button><br><br>
+  
   </div>
 </template>
 

@@ -3,19 +3,16 @@
         <Formulario/>
         <CombinaSab/>
         <h2>Selección de figuras</h2>
-        <input type="checkbox" id="topping1" name="topping1" value="Estrella">
         <label for="topping1">Estrellas:</label>
-        <input type="number" id="numero1" name="topping1" class="amount" min="0" max="100" value="0"><br> <br>
-        <input type="checkbox" id="topping2" name="topping2" value="Fig_geo">
+        <input type="number" v-model="nombreChange" name="topping1" class="amount" min="0" max="100"><br> <br>
         <label for="topping2">Figuras Geometricas:</label>
-        <input type="number" id="numero2" name="topping2" class="amount" min="0" max="100" value="0"><br> <br>
-        <input type="checkbox" id="topping3" name="topping3" value="Numero">
+        <input type="number" v-model="nombreChange" name="topping2" class="amount" min="0" max="100"><br> <br>
         <label for="topping3">Numeros:</label>
-        <input type="number" id="numero3" name="topping3" class="amount" min="0" max="100" value="0"><br> <br>
-        <input type="checkbox" id="topping3" name="topping3" value="Letra">
+        <input type="number" v-model="nombreChange" name="topping3" class="amount" min="0" max="100"><br> <br>
         <label for="topping3">Letras:</label>
-        <input type="number" id="numero4" name="topping4" class="amount" min="0" max="100" value="0"><br> <br>      
-        <button @click="$store.dispatch('formChange')" >Clic aquí para enviar</button><br><br>
+        <input type="number" v-model="nombreChange" name="topping4" class="amount" min="0" max="100"><br> <br>      
+        
+        <button @click="addForm" >Clic aquí para enviar</button><br><br>
     </div>
 </template>
 
@@ -27,6 +24,46 @@ export default {
   components:{
     Formulario,
     CombinaSab
+  },
+  methods:{
+  addForm(){
+      this.$store.dispatch('formChange')
+      this.$store.dispatch('formChange2')
+    }
+  },
+   computed: {
+    estrellaChange: {
+      get(){
+        return this.$store.state.figures.estrella;
+      },
+      set(estrella){
+        this.$store.commit("limonChange",estrella);
+      }
+    },
+    geometricaChange: {
+      get(){
+        return this.$store.state.figures.geometrica;
+      },
+      set(geometrica){
+        this.$store.commit("chocolateChange",geometrica);
+      }
+    },
+    numeroChange: {
+      get(){
+        return this.$store.state.figures.numero;
+      },
+      set(numero){
+        this.$store.commit("fresaChange",numero);
+      }
+    },
+    letraChange: {
+      get(){
+        return this.$store.state.figures.letra;
+      },
+      set(letra){
+        this.$store.commit("vainillaChange",letra);
+      }
+    }
   }    
 }
 </script>
