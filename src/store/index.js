@@ -16,21 +16,26 @@ export default createStore({
       chocolate:false
     },
     figures:{
-      estrella:0,
-      geometrica:0,
-      numero:0,
-      letra:0
+      estrella:null,
+      geometrico:null,
+      numero:null,
+      letra:null
     },
     arrayForm:[ 
-      {nombre:'Jorge',
-     telefono:'2345678901',
+      {nombre:'Prueba Nombre',
+     telefono:'1234567890',
      correo:'example@correo.com'}],
     arrayFlavor:[
-     {proporcion:'no hay',
-      limon:false,
+     {proporcion:'Prueba descripcion',
+      limon:true,
       vainilla:false,
       fresa:false,
-      chocolate:false}]
+      chocolate:true}],
+    arrayFigure:[
+      {estrella:0,
+      geometrico:0,
+      numero:0,
+      letra:0}]
   },
   getters: {
     pedido(state){
@@ -79,6 +84,27 @@ export default createStore({
         fresa:false,
         chocolate:false
       };
+    },
+    estrellaChange(state,estrella){
+      state.figures.estrella=estrella;
+    },
+    geometricoChange(state,geometrico){
+      state.figures.geometrico=geometrico;
+    },
+    numeroChange(state,numero){
+      state.figures.numero=numero;
+    },
+    letraChange(state,letra){
+      state.figures.letra=letra;
+    },
+    addForm3(state){
+      state.arrayFigure=[state.figures,...state.arrayFigure];
+      state.figures={
+        estrella:null,
+        geometrico:null,
+        numero:null,
+        letra:null
+      };
      alert('formulario enviado con exito');
     },
   },
@@ -101,6 +127,9 @@ export default createStore({
     formChange2({commit}){
       commit('addForm2');
      },
+     formChange3({commit}){
+      commit('addForm3');
+     }
   },
   modules: {
   }

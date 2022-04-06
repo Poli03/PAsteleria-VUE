@@ -3,8 +3,8 @@
     <h1>Pastelero</h1>
       <h1>Pedidos requeridos:</h1>
      <p>{{$store.getters.pedido}}</p>
-     <p>Numero de pedido:</p>
-     <input type="number" min="0" max="99" value="4"><br>
+    <!-- <p>Numero de pedido:</p>
+     <input type="number" min="0" max="99" value="4"><br>   falta crear funcion para selecionar cada pedido-->
      <table>
         <tr>
             <th>Nombre</th>
@@ -27,27 +27,27 @@
         </tr>
     </table><br>
     <p><b>Especificaciones: </b></p><output  v-for="(flavors, index) in $store.state.arrayFlavor" :key="index">
-        {{flavors.proporcion}}</output>
+      <br>{{flavors.proporcion}} <br></output>
     <br><br>
     <p><b>Canitad de Adornos</b> </p> 
     <table>
         <tr>
             <th> Estrellas </th>
-            <th> Figuras geometricas </th>
+            <th> Geometricos </th>
             <th> Numeros </th>
             <th> Letras </th>
         </tr>
  
-        <tr>
-             <td><output>12</output></td>
-             <td><output>3</output></td>
-             <td><output>20</output></td>
-             <td><output>0</output></td>
+        <tr v-for="(figures, index) in $store.state.arrayFigure" :key="index">
+             <td>{{figures.estrella}}</td>
+             <td>{{figures.geometrico}}</td>
+             <td>{{figures.numero}}</td>
+             <td>{{figures.letra}}</td>
         </tr>
     </table><br>
-    <p>Elimina pedido seleccionado: </p>
-    <button  >Eliminar pedido</button><br><br>
-  
+    <!--<p>Elimina pedido seleccionado: </p>
+    <button  >Eliminar pedido</button><br><br> falta funcion para eliminar pedido
+  -->
   </div>
 </template>
 
